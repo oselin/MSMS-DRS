@@ -1,0 +1,39 @@
+
+with(MBSymba_r6):
+
+draw_mech := proc(sol::{list(`=`),set(`=`)}, data::{list(`=`),set(`=`)}, dof)
+
+          local p0,p1,p2,p3,p3b,p4,p5,rRj,g3,p_act;
+          rRj := 0.002: # radius of joint symbols
+
+          p0  := evalf(subs(sol,data,dof, [comp_XYZ(P0,  ground)])):
+          p1  := evalf(subs(sol,data,dof, [comp_XYZ(P1,  ground)])):
+          p2  := evalf(subs(sol,data,dof, [comp_XYZ(P2,  ground)])):
+          p3  := evalf(subs(sol,data,dof, [comp_XYZ(P3,  ground)])):
+          p3b := evalf(subs(sol,data,dof, [comp_XYZ(P3b, ground)])):
+          p4  := evalf(subs(sol,data,dof, [comp_XYZ(P4,  ground)])):
+          g3  := evalf(subs(sol,data,dof, [comp_XYZ(Gflap,  ground)])):
+          p5  := evalf(subs(sol,data,dof, [comp_XYZ(P5,  ground)])):
+          p_act := evalf(subs(sol,data,dof, [x1,y1])):
+
+          display(   #plottools:-disk(p0[1..2],rRj,color="Yellow"),
+                     plottools:-disk(p1[1..2],rRj,color="Orange"),
+                     plottools:-disk(p2[1..2],rRj,color="Red"),
+                     plottools:-disk(p3[1..2],rRj,color="Violet"),
+                     plottools:-disk(p3b[1..2],rRj,color="Violet"),
+                     plottools:-disk(p4[1..2],rRj,color="Violet"),
+                     plottools:-disk(g3[1..2],rRj,color="Violet"),
+                     plottools:-disk(p5[1..2],rRj,color="Violet"),
+                     
+                     #plottools:-line(p0[1..2],p1[1..2],thickness=1,color="orange"),
+                     plottools:-line(p1[1..2],p2[1..2],thickness=3,color="DodgerBlue"),
+                     plottools:-line(p2[1..2],p3[1..2],thickness=3,color="orange"),
+                     plottools:-line(p4[1..2],p5[1..2],thickness=3,color="Violet"),
+                     plottools:-line(p4[1..2],p3b[1..2],thickness=3,color="Violet"),
+                     plottools:-line(p_act[1..2],p1[1..2],thickness=5,color="Red"),
+                     plottools:-polygon([p4[1..2],p5[1..2],g3[1..2]],color="Violet"),
+                     
+                     
+          scaling = constrained,size=[800,300]);
+          
+end proc:
