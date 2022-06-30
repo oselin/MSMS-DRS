@@ -1,0 +1,66 @@
+
+with(MBSymba_r6):
+with(LinearAlgebra):
+
+# Dynamic analysis
+#After the optimization, the masses and inertias can be calculated
+printf("Mass and inertia for the actuator are estimated"):
+{m1  = subs(data,r=0.010,l=0.004,4510*(s__closed+L1)*r^2*Pi)};
+{Iz1 = subs(data,%,r=0.010,1/12*m1*((s__closed+L1)^2+(2*r)^2))};
+data := data union % union %%:
+print(%%%,%%):
+
+printf("\nMass and inertia for the pod are estimated"):
+if massless = 0 then
+{m2  = subs(data,sp=0.010,l=0.004,4510*LP*sp*l)};
+{Iz2 = subs(data,%,sp=0.010,1/12*m2*(LP^2+sp^2))};
+else
+{m2 = 0};
+{Iz2 = 0};
+end if:
+data := data union % union %%:
+print(%%%,%%):
+
+# Definition of the bodies
+# Definition of the body: actuator
+printf("\nDefinition of the body: actuator"):
+actuator := make_BODY(Gact,m1):
+print(%):
+
+# Definition of the body: pod 
+printf("\nDefinition of the body: pod"):
+if massless = 0 then
+pod := make_BODY(Gpod,m2,0,0,Iz2):
+print(%):
+end if:
+
+# Definition of the body: flap
+printf("\nDefinition of the body: flap"):
+flap := make_BODY(Gflap,m3,0,0,Iz3):
+print(%):
+
+if massless = 0 then
+body := {actuator, pod, flap}:
+else
+body := {actuator, flap}:
+end if:
+
+
+# Definition of the forces
+printf("\nDefinition of the vector gravity"):
+_gravity := make_VECTOR(ground,0,-g,0):
+print(%):
+
+# Definition of body weights
+printf("\nDefinition of the vectors weights"):
+w__1 := make_VECTOR(ground,0,-m1*g,0):print(%):
+if massless = 0 then
+w__2 := make_VECTOR(ground,0,-m2*g,0):print(%):
+end if:
+w__3 := make_VECTOR(ground,0,-m3*g,0):print(%):
+
+
+# Definition of the external forces (directions and magnitudes)
+printf("\nDefinition of the vector T_aero (external torque)"):
+T__aereo := make_VECTOR(ground, 0, 0, Taereo):print(%):
+
