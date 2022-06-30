@@ -37,3 +37,33 @@ draw_mech := proc(sol::{list(`=`),set(`=`)}, data::{list(`=`),set(`=`)}, dof)
           scaling = constrained,size=[800,300]);
           
 end proc:
+
+plot_forces := proc()
+          
+          local A,B:
+
+          A := plot(subs(sol, sol_acc, sol_vel, sol_kine, data, theta3(t)=q1_profile, R1y(t)), 
+          T=0..3*actuation_time, color=c_set[1],labels=[typeset(t),typeset([N])],title="Reaction force R1y(t) prismatic joint"):
+          B := plot(subs(sol, sol_acc, sol_vel, sol_kine, data, theta3(t)=q1_profile, T1z(t)), 
+          T=0..3*actuation_time, color=c_set[2],labels=[typeset(t),typeset([Nm])],title="Reaction force T1z(t) prismatic joint"):
+          plots[display](Array([A, B])):print(%):
+
+          A := plot(subs(sol, sol_acc, sol_vel, sol_kine, data, theta3(t)=q1_profile, R2x(t)), 
+          T=0..3*actuation_time, color=c_set[1],labels=[typeset(t),typeset([N])],title="Reaction force R2x(t) revolute joint"):
+          B := plot(subs(sol, sol_acc, sol_vel, sol_kine, data, theta3(t)=q1_profile, R2y(t)), 
+          T=0..3*actuation_time, color=c_set[2],labels=[typeset(t),typeset([N])],title="Reaction force R2y(t) revolute joint"):
+          plots[display](Array([A, B])):print(%):
+
+          A := plot(subs(sol, sol_acc, sol_vel, sol_kine, data, theta3(t)=q1_profile, R3x(t)), 
+          T=0..3*actuation_time, color=c_set[1],labels=[typeset(t),typeset([N])],title="Reaction force R3x(t) revolute joint"):
+          B := plot(subs(sol, sol_acc, sol_vel, sol_kine, data, theta3(t)=q1_profile, R3y(t)), 
+          T=0..3*actuation_time, color=c_set[2],labels=[typeset(t),typeset([N])],title="Reaction force R3y(t) revolute joint"):
+          plots[display](Array([A, B])):print(%):
+
+          A := plot(subs(sol, sol_acc, sol_vel, sol_kine, data, theta3(t)=q1_profile, R4x(t)), 
+          T=0..3*actuation_time, color=c_set[1],labels=[typeset(t),typeset([N])],title="Reaction force R4x(t) revolute joint"):
+          B := plot(subs(sol, sol_acc, sol_vel, sol_kine, data, theta3(t)=q1_profile, R4y(t)), 
+          T=0..3*actuation_time, color=c_set[2],labels=[typeset(t),typeset([N])],title="Reaction force R4y(t) revolute joint"):
+          plots[display](Array([A, B])):print(%):
+
+end proc:
