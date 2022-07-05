@@ -165,7 +165,7 @@ end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot position function</Text-field></Title>
+<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot position function</Text-field></Title>
 <Group labelreference="L4" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_position := proc()
 
@@ -184,7 +184,7 @@ end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot velocity function</Text-field></Title>
+<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot velocity function</Text-field></Title>
 <Group labelreference="L5" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_velocity := proc()
 
@@ -201,7 +201,7 @@ end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot acceleration function</Text-field></Title>
+<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot acceleration function</Text-field></Title>
 <Group labelreference="L8" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_acceleration := proc()
 
@@ -236,7 +236,7 @@ end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot reaction forces for NE approach</Text-field></Title>
+<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot reaction forces for NE approach</Text-field></Title>
 <Group labelreference="L19" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_reactionforces := proc()
           
@@ -262,7 +262,7 @@ end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot sampled act() and s(t)</Text-field></Title>
+<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot sampled act() and s(t)</Text-field></Title>
 <Group labelreference="L14" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_samples := proc()
 
@@ -282,33 +282,33 @@ end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot hydraulic analysis results</Text-field></Title>
+<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot hydraulic analysis results</Text-field></Title>
 <Group labelreference="L15" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_hydr := proc()
 
           local C,D:
           
-          C := plot(subs(hydr_sol_dinam,hydr_data,A(t)),t=0..actuation_time ,labels=[&quot;time [s]&quot;,typeset(m^2)],title=&quot;Valve area&quot;,color=c_set[1]);
-          D := plot(subs(hydr_sol_dinam,hydr_data,V3(t)),t=0..actuation_time,labels=[&quot;time [s]&quot;,typeset(m^3)],title=&quot;Volume&quot;    ,color=c_set[2]);
+          C := plot(subs(hydr_sol_dinam,hydr_data,A(t)),t=0..3*actuation_time ,labels=[&quot;time [s]&quot;,typeset(m^2)],title=&quot;Valve area&quot;,color=c_set[1]);
+          D := plot(subs(hydr_sol_dinam,hydr_data,V3(t)),t=0..3*actuation_time,labels=[&quot;time [s]&quot;,typeset(m^3)],title=&quot;Volume&quot;    ,color=c_set[2]);
           print(plots[display](Array([C,D]))):
 
-          C := plot(subs(hydr_sol_dinam,hydr_data,p1(t)),t=0..actuation_time,labels=[&quot;time [s]&quot;,&quot;Pressure[bar]&quot;],title=&quot;Pressure P1&quot;,color=c_set[3]);
-          D := plot(subs(hydr_sol_dinam,hydr_data,p2(t)),t=0..actuation_time,labels=[&quot;time [s]&quot;,&quot;Pressure[bar]&quot;],title=&quot;Pressure P2&quot;,color=c_set[4]);
+          C := plot(subs(hydr_sol_dinam,hydr_data,p1(t)),t=0..3*actuation_time,labels=[&quot;time [s]&quot;,&quot;Pressure[bar]&quot;],title=&quot;Pressure P1&quot;,color=c_set[3]);
+          D := plot(subs(hydr_sol_dinam,hydr_data,p2(t)),t=0..3*actuation_time,labels=[&quot;time [s]&quot;,&quot;Pressure[bar]&quot;],title=&quot;Pressure P2&quot;,color=c_set[4]);
           print(plots[display](Array([C,D]))):
 
-          C := plot(subs(hydr_sol_dinam,hydr_data,p3(t)),t=0..actuation_time,   labels=[&quot;time [s]&quot;,&quot;Pressure[bar]&quot;],title=&quot;Pressure P3&quot;,color=c_set[5]);
-          D := plot(subs(hydr_sol_dinam,hydr_data,q1__lex(t)),t=0..actuation_time,labels=[&quot;time [s]&quot;,&quot;Flow rate[m^3/s]&quot;],title=&quot;Leakage flow rate&quot;,color=c_set[6]);
+          C := plot(subs(hydr_sol_dinam,hydr_data,p3(t)),t=0..3*actuation_time,   labels=[&quot;time [s]&quot;,&quot;Pressure[bar]&quot;],title=&quot;Pressure P3&quot;,color=c_set[5]);
+          D := plot(subs(hydr_sol_dinam,hydr_data,q1__lex(t)),t=0..3*actuation_time,labels=[&quot;time [s]&quot;,&quot;Flow rate[m^3/s]&quot;],title=&quot;Leakage flow rate&quot;,color=c_set[6]);
           print(plots[display](Array([C,D]))):
 
-          C := plot(subs(hydr_sol_dinam,hydr_data,q__12(t)),t=0..actuation_time,labels=[&quot;time [s]&quot;,&quot;Flow rate[m^3/s]&quot;],title=&quot;Q12 flow rate&quot;,color=c_set[7]);
-          D := plot(subs(hydr_sol_dinam,hydr_data,q__23(t)),t=0..actuation_time,labels=[&quot;time [s]&quot;,&quot;Flow rate[m^3/s]&quot;],title=&quot;Q23 flow rate&quot;,color=c_set[7]);
+          C := plot(subs(hydr_sol_dinam,hydr_data,q__12(t)),t=0..3*actuation_time,labels=[&quot;time [s]&quot;,&quot;Flow rate[m^3/s]&quot;],title=&quot;Q12 flow rate&quot;,color=c_set[7]);
+          D := plot(subs(hydr_sol_dinam,hydr_data,q__23(t)),t=0..3*actuation_time,labels=[&quot;time [s]&quot;,&quot;Flow rate[m^3/s]&quot;],title=&quot;Q23 flow rate&quot;,color=c_set[7]);
           print(plots[display](Array([C,D]))):
 
 end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Dynamic optimization - NE</Text-field></Title>
+<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Dynamic optimization - NE</Text-field></Title>
 <Group labelreference="L20" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">dynam_opt_ne := proc(aaa,bbb,ccc,ddd,eee)
    local param,E,G,NE,NG,r_vars0,dof0,vel_dof0,qD0,vel_qD0,ics0,sol_act_dinam,dae_ics,dae_sys,sol_dae,cost_fun,i,k:

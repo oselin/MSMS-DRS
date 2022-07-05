@@ -141,20 +141,20 @@ plot_hydr := proc()
 
           local C,D:
           
-          C := plot(subs(hydr_sol_dinam,hydr_data,A(t)),t=0..actuation_time ,labels=["time [s]",typeset(m^2)],title="Valve area",color=c_set[1]);
-          D := plot(subs(hydr_sol_dinam,hydr_data,V3(t)),t=0..actuation_time,labels=["time [s]",typeset(m^3)],title="Volume"    ,color=c_set[2]);
+          C := plot(subs(hydr_sol_dinam,hydr_data,A(t)),t=0..3*actuation_time ,labels=["time [s]",typeset(m^2)],title="Valve area",color=c_set[1]);
+          D := plot(subs(hydr_sol_dinam,hydr_data,V3(t)),t=0..3*actuation_time,labels=["time [s]",typeset(m^3)],title="Volume"    ,color=c_set[2]);
           print(plots[display](Array([C,D]))):
 
-          C := plot(subs(hydr_sol_dinam,hydr_data,p1(t)),t=0..actuation_time,labels=["time [s]","Pressure[bar]"],title="Pressure P1",color=c_set[3]);
-          D := plot(subs(hydr_sol_dinam,hydr_data,p2(t)),t=0..actuation_time,labels=["time [s]","Pressure[bar]"],title="Pressure P2",color=c_set[4]);
+          C := plot(subs(hydr_sol_dinam,hydr_data,p1(t)),t=0..3*actuation_time,labels=["time [s]","Pressure[bar]"],title="Pressure P1",color=c_set[3]);
+          D := plot(subs(hydr_sol_dinam,hydr_data,p2(t)),t=0..3*actuation_time,labels=["time [s]","Pressure[bar]"],title="Pressure P2",color=c_set[4]);
           print(plots[display](Array([C,D]))):
 
-          C := plot(subs(hydr_sol_dinam,hydr_data,p3(t)),t=0..actuation_time,   labels=["time [s]","Pressure[bar]"],title="Pressure P3",color=c_set[5]);
-          D := plot(subs(hydr_sol_dinam,hydr_data,q1__lex(t)),t=0..actuation_time,labels=["time [s]","Flow rate[m^3/s]"],title="Leakage flow rate",color=c_set[6]);
+          C := plot(subs(hydr_sol_dinam,hydr_data,p3(t)),t=0..3*actuation_time,   labels=["time [s]","Pressure[bar]"],title="Pressure P3",color=c_set[5]);
+          D := plot(subs(hydr_sol_dinam,hydr_data,q1__lex(t)),t=0..3*actuation_time,labels=["time [s]","Flow rate[m^3/s]"],title="Leakage flow rate",color=c_set[6]);
           print(plots[display](Array([C,D]))):
 
-          C := plot(subs(hydr_sol_dinam,hydr_data,q__12(t)),t=0..actuation_time,labels=["time [s]","Flow rate[m^3/s]"],title="Q12 flow rate",color=c_set[7]);
-          D := plot(subs(hydr_sol_dinam,hydr_data,q__23(t)),t=0..actuation_time,labels=["time [s]","Flow rate[m^3/s]"],title="Q23 flow rate",color=c_set[7]);
+          C := plot(subs(hydr_sol_dinam,hydr_data,q__12(t)),t=0..3*actuation_time,labels=["time [s]","Flow rate[m^3/s]"],title="Q12 flow rate",color=c_set[7]);
+          D := plot(subs(hydr_sol_dinam,hydr_data,q__23(t)),t=0..3*actuation_time,labels=["time [s]","Flow rate[m^3/s]"],title="Q23 flow rate",color=c_set[7]);
           print(plots[display](Array([C,D]))):
 
 end proc:
