@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Worksheet>
-<Version major="2021" minor="2"/>
+<Version major="2016" minor="2"/>
 <Label-Scheme value="2" prefix=""/>
-<View-Properties presentation="false" autoexpanding_sections="true" UserProfileName="Maple Default Profile" NumericFormat-ApplyInteger="true" NumericFormat-ApplyRational="true" NumericFormat-ApplyExponent="false" editable="true">
+<View-Properties presentation="false" autoexpanding_sections="true" UserProfileName="Maple Default Profile" NumericFormat-ApplyInteger="true" NumericFormat-ApplyRational="true" NumericFormat-ApplyExponent="false">
 <Hide name="Group Range"/>
 </View-Properties>
-<MapleNet-Properties prettyprint="3" warnlevel="3" compactdisplay="false" preplot="" helpbrowser="standard" displayprecision="-1" echo="1" scientificx="true" unitattributes="&quot;fontweight&quot; = &quot;bold&quot;" imaginaryunit="I" longdelim="true" elisiontermsthreshold="10000" elisiondigitsafter="100" elisiondigitsbefore="100" plotdevice="inline" errorbreak="1" plotoptions="" plotdriver="opengl" quiet="false" elisiontermsbefore="100" elisiontermsafter="100" historytimestamp="false" screenwidth="79" indentamount="4" plotoutput="terminal" screenpixelheight="1080" rtablesize="[10, 10]" useclientjvm="true" format="worksheet" labelwidth="20" postplot="" typesetting="extended" ansi="false" ansicolor="[]" elisiondigitsthreshold="10000" showassumed="1" ansilprint="false" trailingsemicolon="true" errorcursor="false" labelling="true" screenheight="25" prompt="&gt; " verboseproc="1" latexwidth="8.0" ShowLabels="true"/>
+<MapleNet-Properties prettyprint="3" warnlevel="3" preplot="" helpbrowser="standard" contextmenusize="automatic" displayprecision="-1" echo="1" unitattributes="&quot;fontweight&quot; = &quot;bold&quot;" imaginaryunit="I" longdelim="true" elisiontermsthreshold="10000" elisiondigitsafter="100" elisiondigitsbefore="100" plotdevice="inline" errorbreak="1" plotoptions="" plotdriver="opengl" quiet="false" elisiontermsbefore="100" elisiontermsafter="100" screenwidth="79" indentamount="4" plotoutput="terminal" screenpixelheight="1440" rtablesize="10" useclientjvm="true" labelwidth="20" postplot="" typesetting="standard" ansi="false" elisiondigitsthreshold="10000" showassumed="1" errorcursor="false" labelling="true" screenheight="25" prompt="&gt; " verboseproc="1" latexwidth="8.0" ShowLabels="true"/>
 <Styles>
 <Font name="Heading 1" background="[255,255,255]" bold="true" executable="false" family="Montserrat" foreground="[195,69,11]" italic="false" opaque="false" readonly="false" size="20" subscript="false" superscript="false" underline="false" placeholder="false"/>
 <Font name="Heading 4" background="[255,255,255]" bold="true" executable="false" family="Montserrat" foreground="[235,132,3]" italic="false" opaque="false" readonly="false" size="12" subscript="false" superscript="false" underline="false" placeholder="false"/>
@@ -117,7 +117,7 @@
     <Task-category name="&lt;default&gt;"/>
 </Task-table>
 <Task/>
-<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Drawing procedure</Text-field></Title>
+<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Drawing procedure</Text-field></Title>
 <Group labelreference="L1" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">draw_mech := proc(sol::{list(`=`),set(`=`)}, data::{list(`=`),set(`=`)}, dof)
 
@@ -167,15 +167,15 @@ end proc:</Text-field>
 </Section>
 <Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot position function</Text-field></Title>
 <Group labelreference="L4" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_position := proc()
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_position := proc(dd::{list(`=`),set(`=`)})
 
           local A,B:
           
 
-          A := plot(subs(sol_kine, data, theta3(t) = q1_profile, theta1(t) * 180 /Pi), T = 0..3*actuation_time, color = c_set[1],
+          A := plot(subs(sol_kine, dd, theta3(t) = q1_profile, theta1(t) * 180 /Pi), T = 0..3*actuation_time, color = c_set[1],
             title = typeset(&quot;Position of &quot;, theta__1(t))<Font encoding="UTF-8">,labels=[&quot;time [s]&quot;,&quot;Angle [\302\260]&quot;</Font>],size = [800, 500]):
    
-          B := plot(subs(sol_kine, data, theta3(t) = q1_profile, s(t)), T = 0..3*actuation_time, color = c_set[2],
+          B := plot(subs(sol_kine, dd, theta3(t) = q1_profile, s(t)), T = 0..3*actuation_time, color = c_set[2],
             title = typeset(&quot;Position of&quot;, s(t)),labels=[t (s),typeset([m])],size = [800, 500]):
 
           print(plots[display](Array([A, B]))):
@@ -184,16 +184,16 @@ end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot velocity function</Text-field></Title>
+<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot velocity function</Text-field></Title>
 <Group labelreference="L5" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_velocity := proc()
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_velocity := proc(dd::{list(`=`),set(`=`)})
 
           local A,B:
           
-          A := plot(subs(sol_kine, data, theta_base, vel_theta1), T = 0..3*actuation_time, color = c_set[1],
+          A := plot(subs(sol_kine, dd, theta_base, vel_theta1), T = 0..3*actuation_time, color = c_set[1],
             title = typeset(&quot;Velocity of &quot;, theta__1(t)),labels=[&quot;time [s]&quot;, &quot;velocity [rad/s]&quot;],size = [800, 500]):
 
-          B := plot(subs(sol_kine, data, theta_base, vel_s), T = 0..3*actuation_time, color = c_set[2],
+          B := plot(subs(sol_kine, dd, theta_base, vel_s), T = 0..3*actuation_time, color = c_set[2],
             title = typeset(&quot;Velocity of &quot;, s(t)),labels=[&quot;time [s]&quot;, &quot;velocity [m/s]&quot;],size = [800, 500]):
 
              print(plots[display](Array([A, B]))):
@@ -201,17 +201,17 @@ end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot acceleration function</Text-field></Title>
+<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot acceleration function</Text-field></Title>
 <Group labelreference="L8" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_acceleration := proc()
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_acceleration := proc(dd::{list(`=`),set(`=`)})
 
           local A,B:
           
 
-          A := plot(subs(sol_kine, data, theta_base, acc_theta1), T = 0..3*actuation_time, color = c_set[1], 
+          A := plot(subs(sol_kine, dd, theta_base, acc_theta1), T = 0..3*actuation_time, color = c_set[1], 
             title = typeset(&quot;Acceleration of &quot;, theta__1(t)),labels = [&quot;time [s]&quot;, &quot; acceleration [rad/s^2]&quot;],size = [800, 500]):
          
-          B := plot(subs(sol_kine, data, theta_base, acc_s), T = 0..3*actuation_time, color = c_set[2], 
+          B := plot(subs(sol_kine, dd, theta_base, acc_s), T = 0..3*actuation_time, color = c_set[2], 
             title = typeset(&quot;Acceleration of &quot;, s(t)),labels = [&quot;time [s]&quot;, &quot;acceleration [m/s^2]&quot;],size = [800, 500]):
 
           print(plots[display](Array([A, B]))):
@@ -222,14 +222,14 @@ end proc:</Text-field>
 </Section>
 <Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Plot system configurations</Text-field></Title>
 <Group labelreference="L11" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_system := proc()
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">plot_system := proc(dd::{list(`=`),set(`=`)})
 
           local A,B:
           
 
-          A := draw_mech(sol_kine, data, theta3(t)=flap_closed, title = &quot;Configuration Recursive&quot;, size = [500,500]):
+          A := draw_mech(sol_kine, dd, theta3(t)=flap_closed, title = &quot;Configuration Recursive&quot;, size = [500,500]):
 
-          B := draw_mech(sol_kine, data, theta3(t)=flap_open  , title = &quot;Configuration Recursive&quot;, size = [500,500]):
+          B := draw_mech(sol_kine, dd, theta3(t)=flap_open  , title = &quot;Configuration Recursive&quot;, size = [500,500]):
         
           print(plots[display](Array([A, B])));
 end proc:</Text-field>
@@ -308,12 +308,17 @@ end proc:</Text-field>
 </Input>
 </Group>
 </Section>
-<Section collapsed="true" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Dynamic optimization - NE</Text-field></Title>
+<Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 2" layout="Heading 2">Dynamic optimization - NE</Text-field></Title>
 <Group labelreference="L20" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">dynam_opt_ne := proc(aaa,bbb,ccc,ddd,eee)
-   local param,E,G,NE,NG,r_vars0,dof0,vel_dof0,qD0,vel_qD0,ics0,sol_act_dinam,dae_ics,dae_sys,sol_dae,cost_fun,i,k:
+   local param,E,G,NE,NG,r_vars0,dof0,vel_dof0,qD0,vel_qD0,ics0,sol_act_dinam,dae_ics,subs_inertia,dae_sys,sol_dae,cost_fun,i,k:
 
    param := [L1 = aaa,LP = bbb,anc = ccc,x1 = ddd,y1 = eee]:
+   subs_inertia := {m1  = subs(data_dae,sp=0.010,l=0.004,4510*L1*sp*l),
+                    Iz1 = subs(data_dae,l=0.004,sp=0.010,1/12*4510*L1*sp*l*(L1^2+sp^2)),
+                    m2  = subs(data_dae,sp=0.010,l=0.004,4510*LP*sp*l),
+                    Iz2 = subs(data_dae,l=0.004,sp=0.010,1/12*4510*LP*sp*l*(LP^2+sp^2))
+   }:
 
    <Font foreground="[153,51,102]">#Estimate the initial conditions</Font>
    dof0 := theta3(t) = flap_closed:
@@ -323,23 +328,23 @@ end proc:</Text-field>
    ics0 := [dof0, vel_dof0, qD0, vel_qD0]:
 
    <Font foreground="[153,51,102]">#Estimate the actuation force</Font>
-   sol_act_dinam := subs(forcesub,gamma(t)=q1_profile_t,sol_kine,theta3(t)=q1_profile_t,data_dae,param,sol_act):
+   sol_act_dinam := subs(forcesub,gamma(t)=q1_profile_t,sol_kine,theta3(t)=q1_profile_t,data_dae,subs_inertia,param,sol_act):
 
 <Font foreground="[153,51,102]">   #Estimate the reaction forces</Font>
    E, G := GenerateMatrix(subs(forcesub,gamma(t)=theta3(t),eqns), diff(q_vars,t,t) union r_vars):
-   NE := evalf(subs(subs(forcesub,gamma(t)=theta3(t),sol_act), ics0, data_dae,param, E)):
-   NG := evalf(subs(subs(forcesub,gamma(t)=theta3(t),sol_act), ics0, data_dae,param, G)):
+   NE := evalf(subs(subs(forcesub,gamma(t)=theta3(t),sol_act), ics0,subs_inertia, data_dae,param, E)):
+   NG := evalf(subs(subs(forcesub,gamma(t)=theta3(t),sol_act), ics0,subs_inertia, data_dae,param, G)):
    LinearSolve(NE, NG):
-   r_vars0 := [seq(r_vars[i] = %[-i],i=1..nops(r_vars))]:
+   r_vars0 := [seq(r_vars[-i] = %[-i],i=1..nops(r_vars))]:
 <Font foreground="[153,51,102]">
    #Assembling the generic DAE</Font>
-   dae_ics := subs(t=0,data_dae,convert(convert(ics0,set)  minus {diff(theta1(t),t)=0} ,D) union r_vars0 ):
-   dae_sys := convert(subs(sol_act_dinam,forcesub,gamma(t)=q1_profile_t,data_dae, ne_eqns) union dae_ics,set):
+   dae_ics := subs(t=0,subs_inertia,data_dae,convert(convert(ics0,set)  minus {diff(theta1(t),t)=0} ,D) union r_vars0 ):
+   dae_sys := convert(subs(sol_act_dinam,forcesub,gamma(t)=q1_profile_t,subs_inertia,data_dae, ne_eqns) union dae_ics,set):
    sol_dae := dsolve(dae_sys,numeric,stiff=true,parameters = [L1,LP,anc,x1,y1]):
    sol_dae(parameters = subs(param,[L1,LP,anc,x1,y1])):
 
    <Font foreground="[153,51,102]">#Cost function</Font>
-   cost_fun :=1/W*add(subs(data_dae,param,(delta__s[k]-rhs(sol_dae(k/np*actuation_time)[10]))^2),<Font foreground="[20,83,186]">k=1..np);
+   cost_fun :=1/W*add(subs(subs_inertia,data_dae,param,(delta__s[k]-rhs(sol_dae(k/np*actuation_time)[10]))^2),<Font foreground="[20,83,186]">k=1..np);
 end proc:</Font></Text-field>
 </Input>
 </Group>
@@ -373,7 +378,7 @@ end proc:</Font></Text-field>
    NE := evalf(subs(subs(forcesub,gamma(t)=theta3(t),sol_act), ics0,subs_inertia, data_dae, E)):
    NG := evalf(subs(subs(forcesub,gamma(t)=theta3(t),sol_act), ics0,subs_inertia, data_dae, G)):
    LinearSolve(NE, NG):
-   l_vars0 := [seq(l_vars[i] = %[-i],i=1..nops(l_vars))]:
+   l_vars0 := [seq(l_vars[-i] = %[-i],i=1..nops(l_vars))]:
 <Font foreground="[153,51,102]">
    #Assembling the generic DAE</Font>
    dae_ics := subs(t=0,subs_inertia,data_dae,convert(convert(ics0,set),D) union l_vars0 ): 
