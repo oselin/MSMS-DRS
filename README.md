@@ -1,6 +1,6 @@
 # Drag Reduction System for F1 racing cars
 
-The goal of this project was studying three different actuation mechanisms for the Drag Reduction System (DRS) of a F1 racing car
+The goal of this project was to study three different actuation mechanisms for the Drag Reduction System (DRS) of a F1 racing car
 
 In particular, the analyzed mechanisms were
 -   Pod pull mechanism
